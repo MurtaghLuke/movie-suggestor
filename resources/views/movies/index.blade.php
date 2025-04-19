@@ -13,12 +13,19 @@
     @else
         <ul class="space-y-4">
             @foreach($movies as $movie)
-                <li class="bg-white dark:bg-gray-800 rounded p-4 shadow">
+            <li class="bg-white dark:bg-gray-800 rounded p-4 shadow flex flex-col sm:flex-row items-start gap-4">
+                @if($movie->poster_url)
+                    <img src="{{ $movie->poster_url }}" alt="{{ $movie->title }}" class="w-32 rounded shadow">
+                @endif
+        
+                <div>
                     <h2 class="text-xl font-semibold">{{ $movie->title }} ({{ $movie->release_year }})</h2>
-                    <p class="text-sm text-gray-500">{{ $movie->genre }}</p>
+                    <p class="text-sm text-gray-400 italic">Directed by {{ $movie->director }}</p>
+                    <p class="text-sm text-gray-500 mb-2">{{ $movie->genre }}</p>
                     <p class="mt-2">{{ $movie->description }}</p>
-                </li>
-            @endforeach
+                </div>
+            </li>
+        @endforeach
         </ul>
     @endif
 </div>
