@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('poster_url')->nullable();
             $table->string('genre')->nullable();
+            $table->string('director')->nullable();
             $table->year('release_year')->nullable();
             $table->timestamps();
         });
