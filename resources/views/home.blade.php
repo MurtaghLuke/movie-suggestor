@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Movie Suggestor</title>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <script src="{{ mix('js/app.js') }}" defer></script>
-
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
     <div class="text-center px-4">
