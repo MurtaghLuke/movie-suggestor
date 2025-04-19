@@ -15,7 +15,7 @@
             @foreach($movies as $movie)
             <li class="bg-white dark:bg-gray-800 rounded p-4 shadow flex flex-col sm:flex-row items-start gap-4">
                 @if($movie->poster_url)
-                    <img src="{{ $movie->poster_url }}" alt="{{ $movie->title }}" class="w-32 rounded shadow">
+                <img src="{{ $movie->poster_url }}" alt="{{ $movie->title }}" style="width: 150px; height: auto;" class="rounded shadow object-cover">
                 @endif
         
                 <div>
