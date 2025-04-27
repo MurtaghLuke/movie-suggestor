@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::resource('movies', \App\Http\Controllers\MovieController::class);
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
