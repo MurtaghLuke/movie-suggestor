@@ -25,6 +25,14 @@
                     <p class="mt-2">{{ $movie->description }}</p>
                 </div>
             </li>
+            <form action="{{ route('movies.destroy', $movie) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                @csrf
+                @method('DELETE')
+            
+                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
+                    Delete
+                </button>
+            </form>
         @endforeach
         </ul>
     @endif
