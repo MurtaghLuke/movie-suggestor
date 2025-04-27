@@ -4,9 +4,16 @@
 <div class="max-w-4xl mx-auto mt-10">
     <h1 class="text-3xl font-bold mb-6">Movie List</h1>
 
-    <a href="{{ route('movies.create') }}" class="mb-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
-        + Add Movie
-    </a>
+
+    {{-- button only shows for admin user --}}
+    @auth
+        @if (auth()->user()->is_admin)
+            <a href="{{ route('movies.create') }}" class="mb-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                Add Movie
+            </a>
+        @endif
+    @endauth
+
 
     @if($movies->isEmpty())
         <p class="text-gray-600">No movies yet.</p>
@@ -25,14 +32,20 @@
                     <p class="mt-2">{{ $movie->description }}</p>
                 </div>
             </li>
-            <form action="{{ route('movies.destroy', $movie) }}" method="POST" onsubmit="return confirm('Are you sure?');">
-                @csrf
-                @method('DELETE')
+        
             
-                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
-                    Delete
-                </button>
-            </form>
+            {{-- button only shows for admin user --}}
+            @auth
+                @if (auth()->user()->is_admin)
+                    <form action="{{ route('movies.destroy', $movie) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
+                            Delete
+                        </button>
+                    </form>
+                @endif
+            @endauth
         @endforeach
         </ul>
     @endif

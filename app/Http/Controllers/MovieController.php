@@ -8,6 +8,23 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
+
+    //delete and add only for admins
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (!auth()->check() || !auth()->user()->is_admin) {
+                abort(403, 'Unauthorized');
+            }
+            return $next($request);
+        })->only(['create', 'store', 'edit', 'update', 'destroy']);
+    }
+
+
+
+
+
+
     public function index()
     {
         $movies = Movie::all();
