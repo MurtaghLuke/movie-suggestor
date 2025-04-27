@@ -309,7 +309,7 @@ class MovieSeeder extends Seeder
                 'title' => 'Django Unchained',
                 'description' => 'With the help of a German bounty-hunter, a freed slave sets out to rescue his wife.',
                 'poster_url' => 'https://originalvintagemovieposters.com/wp-content/uploads/2020/05/Django-5980-scaled-687x1024.jpg',
-                'genre' => 'Western',
+                'genre' => 'Action',
                 'release_year' => 2012,
                 'director' => 'Quentin Tarantino',
                 'created_at' => now(),
@@ -319,7 +319,7 @@ class MovieSeeder extends Seeder
                 'title' => 'The Wolf of Wall Street',
                 'description' => 'Based on the true story of Jordan Belfort, a stockbroker who defrauded investors.',
                 'poster_url' => 'https://www.movieposters.com/cdn/shop/files/wolfofwallstreet.24x36_480x.progressive.jpg?v=1707502909',
-                'genre' => 'Biography',
+                'genre' => 'Comedy',
                 'release_year' => 2013,
                 'director' => 'Martin Scorsese',
                 'created_at' => now(),
@@ -347,7 +347,7 @@ class MovieSeeder extends Seeder
                 'updated_at' => now(),
             ],
 
-            
+
             [
                 'title' => 'Up',
                 'description' => 'An old man and a young boy embark on an adventure in a flying house.',
