@@ -9,6 +9,10 @@
 
 ## used breeze for authentication. https://laravel.com/docs/10.x/starter-kits
 
+## Admin account details:
+## name: admin
+## email: admin@admin.com
+## password: adminpassword
 
 
 ## About Laravel
