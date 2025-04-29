@@ -43,8 +43,8 @@ Route::middleware(['auth'])->group(function () {
 
 
 //movie suggestion routes.
-Route::get('/suggest', [SuggestionController::class, 'showForm'])->name('suggest.form');
-Route::post('/suggest', [SuggestionController::class, 'suggest'])->name('suggest.result');
+Route::get('/suggest', [SuggestionController::class, 'showForm'])->name('suggest.form');  ///Route to show the genre selection
+Route::post('/suggest', [SuggestionController::class, 'suggest'])->name('suggest.result');///Route to return a movie suggestion
 
 
 
