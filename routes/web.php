@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SuggestionController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +39,13 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('movies', MovieController::class);
 });
+
+
+
+//movie suggestion routes.
+Route::get('/suggest', [SuggestionController::class, 'showForm'])->name('suggest.form');
+Route::post('/suggest', [SuggestionController::class, 'suggest'])->name('suggest.result');
+
+
 
 require __DIR__.'/auth.php';
