@@ -25,9 +25,26 @@
             @endforeach
         </div>
 
-
         <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded">
             Suggest a Movie
+        </button>
+
+    </form>
+
+
+
+
+    <!--   separate buttons/forms   -->
+    <div class="text-center text-gray-500 my-4 font-semibold">OR</div>
+
+
+
+
+    <!--Surprise me button. (any movie) --->
+    <form action="{{ route('suggest.surprise') }}" method="POST" class="text-center">
+        @csrf
+        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded">
+            Surprise Me!
         </button>
     </form>
 </div>

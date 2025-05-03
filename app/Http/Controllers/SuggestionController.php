@@ -30,4 +30,16 @@ class SuggestionController extends Controller
             'genre' => $request->genre
         ]);
     }
+
+
+    //random movie
+    public function surprise()
+    {
+    $movie = Movie::inRandomOrder()->first();
+    return view('suggest.result', [
+        'movie' => $movie,
+        'genre' => 'Any Genre'
+    ]);
+    }
+
 }
