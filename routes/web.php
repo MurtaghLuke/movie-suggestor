@@ -24,10 +24,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('movies', \App\Http\Controllers\MovieController::class);
 
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//update method for scroll wheel on homepage
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
