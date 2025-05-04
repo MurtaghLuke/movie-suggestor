@@ -6,15 +6,15 @@
 {{-- Welcome banner.--}}
 
 {{-- gradient from left to right. red to blue.  --}}
-<section class="bg-gradient-to-r from-red-600 via-red-0 to-blue-600 text-white py-20 text-center">
+<section class="bg-gradient-to-r from-red-600 to-blue-600 text-white py-20 text-center">
     {{-- max width 4x1. horizontal margin is auto, and padding of 4px --}}
     <div class="max-w-4xl mx-auto px-4">
         <h1 class="text-5xl font-extrabold">Welcome to our Movie Suggestor</h1>
         {{-- text extra large. margin bottom of 4 --}}
         <p class="text-xl mb-4">Find the next film for you.</p>
+        {{-- movie suggestion button. bg is white. text indigo. rounded and changes color when hovered on.            transition duration-300 ease-in-out  adds animation to button when hovered on--}}    
         <a href="{{ route('suggest.form') }}"
-            {{-- movie suggestion button. bg is white. text indigo. rounded and changes color when hovered on.--}}
-           class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100">
+           class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition duration-300 ease-in-out">
             🎬 Get a Movie Suggestion
         </a>
     </div>
