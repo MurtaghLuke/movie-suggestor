@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SuggestionController;
+use App\Http\Controllers\DashboardController;
+
 
 
 use Illuminate\Support\Facades\Route;
