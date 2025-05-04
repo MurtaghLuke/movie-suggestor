@@ -24,12 +24,40 @@ class MovieController extends Controller
 
 
 
-
-    public function index()
+    //updated controller to handle filtering and sorting.
+    public function index(Request $request)
     {
-        $movies = Movie::all();
-        return view('movies.index', compact('movies'));
+        $query = Movie::query();
+    
+        //filter genre.
+        $genre = $request->input('genre');
+        if (!empty($genre)) {
+            $query->where('genre', $genre);
+        }
+    
+        //sort
+        $sort = $request->input('sort');
+        if (in_array($sort, ['title_asc', 'title_desc', 'year_asc', 'year_desc'])) {
+            switch ($sort) {
+                case 'title_asc':
+                    $query->orderBy('title', 'asc');
+                    break;
+                case 'title_desc':
+                    $query->orderBy('title', 'desc');
+                    break;
+                case 'year_asc':
+                    $query->orderBy('release_year', 'asc');
+                    break;
+                case 'year_desc':
+                    $query->orderBy('release_year', 'desc');
+                    break;
+            }
+        }
+        $movies = $query->get();
+        $genres = Movie::distinct()->pluck('genre');
+        return view('movies.index', compact('movies', 'genres'));
     }
+    
 
     public function create()
     {
