@@ -32,19 +32,49 @@
         <div>
             <div class="text-4xl mb-2">🔍</div>
             <h3 class="text-xl font-bold mb-2">Smart Suggestions</h3>
-            <p class="text-gray-600 dark:text-gray-300">Pick a genre and let the system suggest something for you.</p>
+            <p class="text-gray-600">Pick a genre and let the system suggest something for you.</p>
         </div>
         <div>
             <div class="text-4xl mb-2"> 😮 </div>
             <h3 class="text-xl font-bold mb-2">Surprise Me! Feature</h3>
-            <p class="text-gray-600 dark:text-gray-300">Looking for something different? Use our random movie generator.</p>
+            <p class="text-gray-600">Looking for something different? Use our random movie generator.</p>
         </div>
         <div>
             <div class="text-4xl mb-2">⚙️</div>
             <h3 class="text-xl font-bold mb-2">Admin Features</h3>
-            <p class="text-gray-600 dark:text-gray-300">Add or delete movies in the movies page (admin only).</p>
+            <p class="text-gray-600">Add or delete movies in the movies page (admin only).</p>
         </div>
     </div>
 </section>
+
+
+{{-- scrollable wheel --}}
+@if ($latestMovies->count())
+<section class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Latest Movies</h2>
+        {{-- overflow x auto - allows scolling on smaller screens. flex makes child elements align in row. --}}
+        <div class="overflow-x-auto flex space-x-6 pb-4">
+            @foreach ($latestMovies as $movie)
+                {{-- flex shrink keeps movies from shrinking on smaller screens. shadow md gives boxes a shadow. --}}
+                <div class="flex-shrink-0 w-60 bg-white rounded-lg shadow-md">
+                    @if ($movie->poster_url)
+                        {{-- object cover - image covers the whole space. rounded-t-lg. - rounds only the top corners. --}}
+                        <img src="{{ $movie->poster_url }}" alt="{{ $movie->title }}"
+                             class="w-full h-72 object-cover rounded-t-lg">
+                    @endif
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">{{ $movie->title }}</h3>
+                        <p class="text-sm text-gray-500 ">{{ $movie->genre }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
+
+
+
 
 @endsection

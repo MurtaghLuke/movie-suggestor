@@ -11,11 +11,26 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-6 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        Dashboard
                     </x-nav-link>
+                    <x-nav-link :href="route('movies.index')" :active="request()->routeIs('movies.index')">
+                        Movies
+                    </x-nav-link>
+                    <x-nav-link :href="route('suggest.form')" :active="request()->routeIs('suggest.form')">
+                        Suggest
+                    </x-nav-link>
+
+                    @auth
+                        @if(auth()->user()->is_admin)
+                            <x-nav-link :href="route('movies.create')" :active="request()->routeIs('movies.create')">
+                                Add Movie
+                            </x-nav-link>
+                        @endif
+                    @endauth
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
