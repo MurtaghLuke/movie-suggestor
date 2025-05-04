@@ -23,7 +23,7 @@
 
 
     {{-- filter and sort dropdown in movies list page --}}
-    <form method="GET" class=" flex flex-wrap gap-4 items-center">
+    <form method="GET" class="mb-6 flex flex-wrap gap-4 items-center justify-center">
         <select name="genre" class="border p-2 rounded">
             <option value="">All Genres</option>
             @foreach ($genres as $genre)
@@ -40,7 +40,7 @@
             <option value="year_desc" {{ request('sort') == 'year_desc' ? 'selected' : '' }}>Newest First</option>
         </select>
 
-        <button type="submit" class="bg-indigo-600 text-white rounded">Apply</button>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Apply</button>
     </form>
     
 
