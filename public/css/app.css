@@ -697,6 +697,39 @@ select {
   outline: 1px solid ButtonText;
   outline: 1px auto -webkit-focus-ring-color;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1142,10 +1175,6 @@ select {
   --tw-gradient-from: #dc2626 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(220 38 38 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-.via-red-500 {
-  --tw-gradient-to: rgb(239 68 68 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #ef4444 var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 .via-transparent {
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
