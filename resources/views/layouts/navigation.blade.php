@@ -21,6 +21,14 @@
                     <x-nav-link :href="route('suggest.form')" :active="request()->routeIs('suggest.form')">
                         Suggest
                     </x-nav-link>
+
+                    @auth
+                        @if(auth()->user()->is_admin)
+                            <x-nav-link :href="route('movies.create')" :active="request()->routeIs('movies.create')">
+                                Add Movie
+                            </x-nav-link>
+                        @endif
+                    @endauth
                 </div>
 
             </div>
