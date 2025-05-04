@@ -19,6 +19,35 @@
         <p class="text-gray-600 text-center">No movies yet.</p>
     @else
     
+
+
+
+    {{-- filter and sort dropdown in movies list page --}}
+    <form method="GET" class=" flex flex-wrap gap-4 items-center">
+        <select name="genre" class="border p-2 rounded">
+            <option value="">All Genres</option>
+            @foreach ($genres as $genre)
+                <option value="{{ $genre }}"  {{ request('genre') == $genre ? 'selected' : '' }}>{{ $genre }}</option>
+            @endforeach
+        </select>
+    
+        <select name="sort" class=" border p-2 rounded">
+            <option value="">Sort By</option>
+
+            <option value="title_asc" {{ request('sort') == 'title_asc' ? 'selected' : '' }}>Title A–Z</option>
+            <option value="title_desc" {{ request('sort') == 'title_desc' ? 'selected' : '' }}>Title Z–A</option>
+            <option value="year_asc" {{ request('sort') == 'year_asc' ? 'selected' : '' }}>Oldest First</option>
+            <option value="year_desc" {{ request('sort') == 'year_desc' ? 'selected' : '' }}>Newest First</option>
+        </select>
+
+        <button type="submit" class="bg-indigo-600 text-white rounded">Apply</button>
+    </form>
+    
+
+
+
+
+
     
     
     {{-- //movie grid --}}
