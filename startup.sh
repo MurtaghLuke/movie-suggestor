@@ -1,13 +1,11 @@
 #!/bin/bash
 
-cd /home/site/wwwroot
+cd /home/site/wwwroot_old
 
-# Set permissions if needed
+# Set permissions so Laravel can write to these folders
 chmod -R 755 storage bootstrap/cache
 
-# Start Laravel from public folder
+# Laravel caching steps
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
-
-
