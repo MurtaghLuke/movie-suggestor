@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# Navigate to the Laravel public folder and serve it
 cd /home/site/wwwroot
 
-# Ensure vendor is installed
-if [ ! -d "vendor" ]; then
-  composer install --no-dev --optimize-autoloader
-fi
+# Set permissions if needed
+chmod -R 755 storage bootstrap/cache
 
-# Start PHP server from the public directory
+# Start Laravel from public folder
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+# Start PHP server at the /public directory
 php -S 0.0.0.0:8080 -t public
