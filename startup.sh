@@ -10,5 +10,4 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# Start PHP server at the /public directory
-php -S 0.0.0.0:8080 -t public
+
