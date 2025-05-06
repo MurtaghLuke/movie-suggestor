@@ -75,3 +75,4 @@ jobs:
           app-name: 'movie-suggestor'
           slot-name: 'Production'
           package: .
+
