@@ -1,14 +1,17 @@
-name: Build and deploy Laravel app to Azure Web App - movie-suggestor
+name: Deploy Laravel to Azure
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write   
+      contents: read    
 
     steps:
       - name: Checkout code
@@ -17,21 +20,19 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
-          extensions: mbstring, bcmath, curl, mysql
-          tools: composer
+          php-version: 8.1
 
-      - name: Install dependencies & optimize Laravel
+      - name: Install Composer dependencies
         run: |
           composer install --no-dev --optimize-autoloader
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
 
-      - name: Zip Laravel app for deployment
-        run: zip -r release.zip . -x "*.git*" "node_modules/*" "tests/*"
+      - name: Zip all files including dotfiles
+        run: zip -r release.zip . -x "*.git*"
 
-      - name: Upload build artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: laravel-app
@@ -45,12 +46,12 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2E8A2D250A7946BDBA6EC9C58AB25452 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_586B587435324E64A7A991CCB09DC3D0 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_126CA76DDC9F4EFBB3949C14E5A06DF9 }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'movie-suggestor'
+          app-name: movie-suggestor
           package: release.zip
