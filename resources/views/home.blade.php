@@ -11,11 +11,8 @@
         <p class="text-xl mb-6">Find the perfect movie for you!.</p>
         <a href="{{ route('dashboard') }}" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-full">
             Get Started
-        </a>   
+        </a> 
     </div>
-</body>
-
 {{-- DEBUG: this is the updated home view --}}
-
-
+</body>
 </html>

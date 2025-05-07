@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn () => 'This is the real home route.');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('movies', \App\Http\Controllers\MovieController::class);
 
