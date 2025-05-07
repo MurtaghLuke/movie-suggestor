@@ -26,7 +26,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('movies', \App\Http\Controllers\MovieController::class);
 
 
-//update method for scroll wheel on homepage
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
