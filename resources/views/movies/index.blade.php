@@ -93,4 +93,8 @@
     </div>
     @endif
 </div>
+
+
+{{-- DEBUG: This is from index.blade.php --}}
+
 @endsection

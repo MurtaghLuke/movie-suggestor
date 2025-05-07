@@ -112,4 +112,6 @@
             </div>
         </div>
     </div>
+    {{-- DEBUG: This is from navigation.blade.php --}}
+
 </nav>

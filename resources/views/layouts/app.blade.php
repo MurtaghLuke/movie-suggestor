@@ -38,5 +38,8 @@
     {{--Footer--}}
     @include('layouts.footer')
 
+    {{-- DEBUG: This is from app.blade.php --}}
+
+
 </body>
 </html>

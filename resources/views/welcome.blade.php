@@ -133,4 +133,6 @@
             </div>
         </div>
     </body>
+    {{-- DEBUG: This is from welcome.blade.php --}}
+
 </html>
