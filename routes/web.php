@@ -50,3 +50,7 @@ Route::post('/suggest/surprise', [SuggestionController::class, 'surprise'])->nam
 
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/health', fn() => 'OK from Laravel!');
+
